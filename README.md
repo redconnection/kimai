@@ -5,31 +5,46 @@ Dockerized Kimai time tracker
 
 Docker image for running Kimai in a box
 
+
 # Getting Started
 
 Configured MySQL users:passwords:
+
 root:"empty password"
+
 admin:"pass"
 
 Configured MySQL databases:
+
 kimai
 
+
 Exposed ports:
+
 80
 
+
 Deployment:
+
 The below command can be used to download and create a new docker container called kimai and link your docker host system's port 80 with container's exposed port 80.
 docker run -d --name=kimai -p 80:80 linuxconfig/kimai
 
+
 Usage:
+
 Once you deploy a new docker kimai container using the above command, you can immediately access its installation wizard by pointing your browser to http://localhost. From here, simply follow Kimai's installation wizard by using the configuration settings provided above. Once your installation is complete Kimai will complain about the existence of the installer directory. To stop this message from appearing simply remove installer directory:
 docker exec kimai rm -fr /var/www/html/installer
 
+
 Additional information:
+
 Use the following command to update or reset MariaDB user password. The below command will set a new admin user password:
+
 docker exec -it kimai mysqladmin -uadmin -ppass password abc123
 
+
 To create a new database eg. kimai2 enter:
+
 docker exec -it kimai mysqladmin -uadmin -ppass create kimai2
 
 
