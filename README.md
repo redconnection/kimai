@@ -19,7 +19,7 @@ Exposed ports:
 
 Deployment:
 The below command can be used to download and create a new docker container called kimai and link your docker host system's port 80 with container's exposed port 80.
-docker run -d --name=kimai -p 80:80 linuxconfig/kimai
+docker run -d --name=kimai -p 80:80 pliguori/kimai
 
 Usage:
 Once you deploy a new docker kimai container using the above command, you can immediately access its installation wizard by pointing your browser to http://localhost. From here, simply follow Kimai's installation wizard by using the configuration settings provided above. Once your installation is complete Kimai will complain about the existence of the installer directory. To stop this message from appearing simply remove installer directory:

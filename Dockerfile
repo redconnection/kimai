@@ -10,9 +10,10 @@ RUN wget -O /tmp/kimai.zip https://github.com/kimai/kimai/releases/download/1.0.
 RUN rm -fr /var/www/html/*
 RUN unzip /tmp/kimai.zip  -d /var/www/html/
 
+ADD run.sh /run.sh
 
 # Create database
-RUN service mysql start; mysqladmin -uadmin -ppass create kimai
+#RUN service mysql restart; mysqladmin -uadmin -ppass create kimai
 
 # Update file ownership
 RUN chown -R www-data.www-data /var/www/html
@@ -20,4 +21,4 @@ RUN chown -R www-data.www-data /var/www/html
 # Allow ports
 EXPOSE 80
 
-CMD ["supervisord"]
+CMD ["/run.sh"]
