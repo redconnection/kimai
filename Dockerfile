@@ -11,6 +11,8 @@ RUN rm -fr /var/www/html/*
 RUN unzip /tmp/kimai.zip  -d /var/www/html/
 
 ADD run.sh /run.sh
+ADD create_mysql_admin_user.sh /create_mysql_admin_user.sh
+RUN chmod 755 /*.sh
 
 # Create database
 #RUN service mysql restart; mysqladmin -uadmin -ppass create kimai

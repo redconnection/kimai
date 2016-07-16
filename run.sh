@@ -14,7 +14,9 @@ else
     echo "=> Using an existing volume of MySQL"
 fi
 
-mysqladmin -uadmin -ppass create kimai
-
 exec supervisord -n
 
+#ISSUE: these rows are ignored ...
+mysqladmin -uadmin -ppass create kimai
+
+while true; do sleep 1000; done

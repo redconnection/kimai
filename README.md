@@ -27,7 +27,14 @@ Exposed ports:
 Deployment:
 
 The below command can be used to download and create a new docker container called kimai and link your docker host system's port 80 with container's exposed port 80.
-docker run -d --name=kimai -p 80:80 pliguori/kimai
+
+docker run -d --name=kimai -p 80:80 -v /path/in/host:/var/lib/mysql pliguori/kimai
+
+The bootstrap script will take care of understanding whether or not to create a new DB.
+
+Since there is still some problem with the startup via supervisord, you will also need to execute the following, after starting the container:
+
+docker exec -it kimai mysqladmin -uadmin -ppass create kimai
 
 
 Usage:
