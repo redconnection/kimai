@@ -14,7 +14,7 @@ else
     echo "=> Using an existing volume of MySQL"
 fi
 
-exec supervisord -n
-
 mysqladmin -uadmin -ppass create kimai
+
+exec supervisord -n
 

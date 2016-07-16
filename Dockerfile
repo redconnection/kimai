@@ -16,7 +16,7 @@ ADD run.sh /run.sh
 #RUN service mysql restart; mysqladmin -uadmin -ppass create kimai
 
 # Update file ownership
-RUN chown -R www-data.www-data /var/www/html
+RUN chown -R www-data.www-data /app
 
 # Allow ports
 EXPOSE 80
