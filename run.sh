@@ -11,6 +11,7 @@ if [[ ! -d $VOLUME_HOME/mysql ]]; then
     echo "=> Done!"  
     /create_mysql_admin_user.sh
 else
+    rm -rf /var/www/html/installer
     echo "=> Using an existing volume of MySQL"
 fi
 
